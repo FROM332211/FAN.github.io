@@ -262,6 +262,255 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/03/Java中的三种集合（0）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="F">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="F's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/03/Java中的三种集合（0）/" itemprop="url">Java中的三种集合（0）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-03T20:21:45+08:00">
+                2019-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="什么是集合？"><a href="#什么是集合？" class="headerlink" title="什么是集合？"></a>什么是集合？</h5><p>集合就是：一个存放放数据对象引用的容器。</p>
+<h5 id="为什么需要集合？"><a href="#为什么需要集合？" class="headerlink" title="为什么需要集合？"></a>为什么需要集合？</h5><p>数组的缺点是长度不可变，在需要增加额外的数据时很麻烦。而位于Java.util包中的集合可以有效解决这种问题。</p>
+<h5 id="Java中的集合主要分为下面三种类型："><a href="#Java中的集合主要分为下面三种类型：" class="headerlink" title="Java中的集合主要分为下面三种类型："></a>Java中的集合主要分为下面三种类型：</h5><p>Set:无序集合，并且不允许存在重复对象。<br>List：有序集合（根据存放顺序排序）。<br>Map：每个元素包含键对象和值对象，键对象不允许重复，值对象可以重复。</p>
+<h5 id="集合中的接口"><a href="#集合中的接口" class="headerlink" title="集合中的接口:"></a>集合中的接口:</h5><h3 id="Collection接口："><a href="#Collection接口：" class="headerlink" title="Collection接口："></a>Collection接口：</h3><p>  包含了适用于Set集合和List集合的通用方法：<br>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">add</span><span class="params">(Object o)</span>                            <span class="comment">//向集合中加入一个对象的引用</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span>                                     <span class="comment">//删除集合中的所有对象引用</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contains</span><span class="params">(Object o)</span>                       <span class="comment">//判断集合中是否存在特定对象的引用</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span>                                <span class="comment">//判断集合是否为空</span></span></span><br><span class="line"><span class="function">Iterator <span class="title">iterator</span><span class="params">()</span>                              <span class="comment">//返回一个Iterator对象，可用来遍历集合。</span></span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">remove</span><span class="params">(Object o)</span>                         <span class="comment">//从集合中删除一个对象的引用</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">size</span><span class="params">()</span>                                       <span class="comment">//返回集合中元素的数目</span></span></span><br><span class="line"><span class="function">Object[] <span class="title">toArray</span><span class="params">()</span>                               <span class="comment">//将集合中的元素转换成数组，一一对应</span></span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Iterator接口："><a href="#Iterator接口：" class="headerlink" title="Iterator接口："></a>Iterator接口：</h3><p>Iterator对象又称做迭代器。Iterator接口隐藏了各种Collection实现类的底层细节，向客户程序提供了遍历Collection集合元素的统一编程接口。\<br>主要含有三种方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span>                                    <span class="comment">//如果被迭代的集合元素还没有被遍历，则返回true。</span></span></span><br><span class="line"><span class="function">Object <span class="title">next</span><span class="params">()</span>                                        <span class="comment">//返回集合里的下一个元素。 </span></span></span><br><span class="line"><span class="function"> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span>                                      <span class="comment">//删除集合里上一次next方法返回的元素。</span></span></span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/03/hexo常用命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="F">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="F's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/03/hexo常用命令/" itemprop="url">hexo常用命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-03T19:56:31+08:00">
+                2019-06-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p> 编写博客时经常需要使用到Hexo的相关命令，现在在还是初学阶段，将一些经常会用到的命令保存下来并随时补充。</p>
+<p>新建文章：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> <span class="string">"postName"</span></span><br></pre></td></tr></table></figure></p>
+<p>新建页面：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="keyword">new</span> page <span class="string">"pageName"</span></span><br></pre></td></tr></table></figure></p>
+<p>生成静态页面：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br><span class="line">或</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure></p>
+<p>开启本地网页：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br><span class="line">或</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure></p>
+<p>部署到GitHub:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line">或</span><br><span class="line">hexo g</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/second/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -537,7 +786,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -550,7 +799,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
